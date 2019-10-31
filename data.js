@@ -1,11 +1,10 @@
 
 
-/*PLAN: 
-1. Make promise.then function work (and try calling a dummy function in the .then too)
-2. Get header in place (without function for waiting if data loads)
-3. Draw Tables 
-3. Sort tables 
-4. Add css 
+/*
+Need help with: 
+1. Getting sorting funcctions set up
+2. Connecting buttons to sorting
+3. Need help with aligning table columns, table heads, and buttons.  Also with overall design
 */
 
 var appPromise = d3.json("https://cohesiondata.ec.europa.eu/resource/pi4w-3vc9.json")

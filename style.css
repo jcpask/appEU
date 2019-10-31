@@ -1,5 +1,4 @@
 
-
 body 
 {
     background-color:#694873;
@@ -35,142 +34,20 @@ h1
     color:black;
 }
 
-.nav>a
+a
+{
+    color:#16302B;
+    font-weight: bolder;
+}
+
+p
 {
     color:floralwhite;
 }
 
-a
+tr, th
 {
-    color:#16302B;
-    text-shadow: 1px 1px 1px #111111;
-    font-size:85%
-}
-
-.day 
-{
-    font-weight: bolder;
-    font-size:25px;
-    border-style:solid;
-    width:25%;
-    padding:3px;
-    margin:3px auto;
-    text-align:center;
-    background-color:#E9FFDD;
-    border-radius:30px;
-}
-
-.assignment-label
-{
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-}
-
-.reading
-{
-    font-weight:bold;
-    border-style:solid;
-    padding: 2px;
-    width:50%;
-    margin:5px;
-    font-indent:20px;
-}
-
-.prep-box 
-{
-    font-weight:bold;
-    border-style:solid;
-    padding: 2px;
-    width:50%;
-    margin:5px;
-}
-
-.grading-box
-{
-    font-weight:bold;
-    border-style:solid;
-    padding: 2px;
-    width:50%;
-    margin:5px;
-}
-
-.lab-box
-{
-    font-weight:bold;
-    border-style:solid;
-    padding: 2px;
-    width:50%;
-    margin:5px;
-}
-
-div.day-box.PREP
-{
-    height:10%;
-    width:75%;
-    background-color:#C0E5C8;
-    border-style:double;
-    border-width:20px;
-    padding:20px;
-    margin:20px auto;
-    border-color:#16302B;
-    border-radius:20px;
-    font-size:20px;
-}
-
-div.day-box.CURRENT
-{
-    height:10%;
-    width:75%;
-    background-color:#85B79D;
-     border-style:dashed;
-    border-width:20px;
-    padding:20px;
-    margin:20px auto;
-    border-color:#16302B;
-    border-radius:20px;
-    font-size:20px;
-}
-
-div.day-box.COMPLETED
-{
-    height:10%;
-    width:75%;
-    background-color:#C0E5C8;
-     border-style:double;
-    border-width:20px;
-    padding:20px;
-    margin:20px auto;
-    border-color:white;
-    border-color:#16302B;
-    border-radius:20px;
-    font-size:20px;
-}
-
-
-/*  Update Account */
-
-label
-{
-    color:white;
-    background-color:#85B79D;
-    border-style:inset;
-    margin-bottom:30px;
-    margin-left:20px;
-}
-
-input
-{
-    margin-right:95%;
-    margin-top:10px;
-    margin-bottom:20px;
-    margin-left:60px;
-}
-
-/* grades */
-
-tr
-{
-    padding: 7px 10px 10px 10px;
+    padding: 10px 10px 10px;
     font-size:25px;
     border-style:solid;
     font-weight:bold;
@@ -178,7 +55,7 @@ tr
     margin:3px auto;
     text-align:center;
     background-color:#E9FFDD;
-    border-radius:30px;
+    
     color:#16302B;
 }
 
