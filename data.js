@@ -1,9 +1,7 @@
-
-
 /*
 Need help with: 
-1. Getting sorting funcctions set up
-2. Connecting buttons to sorting
+1. I don't understand how buttons work
+2. Need help getting sorting functions set up and connected to buttons
 3. Need help with aligning table columns, table heads, and buttons.  Also with overall design
 */
 
@@ -13,12 +11,15 @@ function(data)
         {
         //Put in here functions I need to call
          makeTable(data); 
+        //initFcn(data);
+        setButtons(data);
+    
         }) 
 
 //This function draws the table
 var makeTable = function(data)
 {
-    //d3.select("#mainTable").remove();
+   d3.selectAll("#mainTable tr").remove();
      var rows = d3.select("#mainTable")
     .selectAll("tr")
     .data(data)
@@ -39,8 +40,7 @@ var makeTable = function(data)
     addCol(rows,function(data)
     {
         return data.eu_amount;
-    }) 
-     
+    })     
 }
 
 //This is a function to add columns
@@ -48,7 +48,18 @@ var addCol=function(rows, fcn)
     {
        rows.append("td").text(fcn);
     }
-
+/*
+//Making button functions (outside of maketable)
+var initFcn = function(data)
+{
+    d3.select("#basic")
+    .on("click",function(d)
+     
+    {
+      console.log("Hey!")  
+    })
+}
+*/
 /*
 var sortColumn = function(data,col,accessor)
 {
@@ -68,9 +79,17 @@ sortColumn(planets,"#density",function(p){return p.density});
 
 var setButtons = function(data)
 {
-  d3.select("#basic").on("click",function(data)
-                        {
-        makeTable(data,"member_state")
+  d3.select("#basic").on("click",function(d)
+    //having 'd' in function helps us grab onto something if we wanted to         
+    {
+        console.log("i draw the table")
+     //This function is when we want to sort and we want to sort before we draw the new table
+     sortColumn(data, function(country)
+               {
+         return country.eu_amount;
+     })
+     makeTable(data.slice(0,4),"member_state")
+      console.log("The table is drawn!")
     });
     
     /*d3.select("#type").on("click",function()
@@ -84,20 +103,17 @@ var setButtons = function(data)
     });   */    
 }
 
-/*
-var sortColumn = function(data,col,accessor)
+
+var sortColumn = function(data,accessor)
 {
-    d3.select(col)
-        .on("click",function()
-    {
+    
         data.sort(function(a,b) 
         { 
             return (accessor(a)-accessor(b));
         })
-        makeTable(data,"ALL");
-    })
+   
 }
-
+/*
 var makeTableHeader = function(data)
 {
     d3.select("#MS")
