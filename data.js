@@ -1,4 +1,4 @@
-
+//NOTE: debugging, comment out half code, then all the down, to find out where it is; for each step with debugging, have console log print outs of data at moment etc; look within data being added to see if one piece is left out (like 19 out of 20 work, and I don't know there's 1 that isn't working)
 var appPromise = d3.json("https://cohesiondata.ec.europa.eu/resource/pi4w-3vc9.json")
 appPromise.then(
 function(data)
@@ -63,7 +63,7 @@ var setButtons = function(data)
     {
         console.log("i draw the table")
      //This function is when we want to sort and we want to sort before we draw the new table
-     sortColumn1(data, function(country)
+     sortNumberColumn(data, function(country)
                {
          return country.eu_amount;
      })
@@ -72,12 +72,10 @@ var setButtons = function(data)
       console.log("The table is drawn!")
     });
     
-    d3.select("#basic").on("click",function(d)
-    //having 'd' in function helps us grab onto something if we wanted to         
+    d3.select("#basic").on("click",function(d)         
     {
         console.log("i draw the table")
-     //This function is when we want to sort and we want to sort before we draw the new table
-     sortColumn2(data, function(country)
+     sortStringColumn(data, function(country)
                {
          return country.member_state;
      })
@@ -86,9 +84,21 @@ var setButtons = function(data)
       console.log("The table is drawn!")
     });
     
+     d3.select("#type").on("click",function(d) 
+    {
+        console.log("i draw the table")
+     sortStringColumn(data, function(country)
+               {
+         return country.type;
+     })
+        
+    makeTable(data)
+      console.log("The table is drawn!")
+    });
+    
 }   
 
-var sortColumn1 = function(data,accessor)
+var sortNumberColumn = function(data,accessor)
 {
     data.sort(function(a,b) 
         { 
@@ -97,9 +107,18 @@ var sortColumn1 = function(data,accessor)
    
 }
 
-var sortColumn2 = function(data)
+var sortStringColumn = function(data, accessor)
+//if i give you this funciton, you'll tell me what you want out of it (def of accessor)
 {
-    data.sort(); 
+    data.sort(function(a,b)
+          {
+        if (accessor (a)==accessor (b))
+       { return 0}
+        else if (accessor (a)>accessor(b))
+        {return 1}
+        else 
+            {return -1}
+    }   ); 
 }
    
 
